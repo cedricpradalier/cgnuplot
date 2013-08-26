@@ -33,11 +33,11 @@ target_link_libraries(${PROJECT_NAME})
 #rosbuild_add_boost_directories()
 #rosbuild_link_boost(${PROJECT_NAME} thread)
 
-rosbuild_add_executable(test_cgnuplot src/test.cpp)
+rosbuild_add_executable(test_cgnuplot tests/test.cpp)
 target_link_libraries(test_cgnuplot ${PROJECT_NAME})
 
-rosbuild_add_executable(test_movie src/test_movie.cpp)
+rosbuild_add_executable(test_movie tests/test_movie.cpp)
 target_link_libraries(test_movie ${PROJECT_NAME})
 
-rosbuild_add_executable(test_surf src/test_surf.cpp)
+rosbuild_add_executable(test_surf tests/test_surf.cpp)
 target_link_libraries(test_surf ${PROJECT_NAME})
