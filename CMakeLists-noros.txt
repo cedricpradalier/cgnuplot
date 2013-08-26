@@ -1,0 +1,28 @@
+cmake_minimum_required(VERSION 2.4.6)
+
+set(PROJECT_NAME cgnuplot)
+
+#set the default path for built executables to the "bin" directory
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+#set the default path for built libraries to the "lib" directory
+set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+
+include_directories(include)
+
+add_definitions(-g -ggdb -O3)
+
+#common commands for building c++ executables and libraries
+add_library(${PROJECT_NAME} 
+	src/CGnuplot.cpp
+	src/CGnuplotSurfaceGrapher.cpp
+	src/CShell.cpp)
+target_link_libraries(${PROJECT_NAME})
+
+add_executable(test_cgnuplot src/test.cpp)
+target_link_libraries(test_cgnuplot ${PROJECT_NAME})
+
+add_executable(test_movie src/test_movie.cpp)
+target_link_libraries(test_movie ${PROJECT_NAME})
+
+add_executable(test_surf src/test_surf.cpp)
+target_link_libraries(test_surf ${PROJECT_NAME})
